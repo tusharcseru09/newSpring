@@ -1,9 +1,61 @@
-<label>
-  Name:
-  <input type="text" [formControl]="name">
-</label>
+<div class="flex-container">
 
-<p>
-  {{name.value}}
-</p>
+  <p>Simple form field</p> <br>
+
+  <mat-form-field>
+    <input matInput placeholder="Input">
+  </mat-form-field>
+
+  <mat-form-field>
+    <textarea matInput placeholder="Text Area"></textarea>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-select placeholder="Select">
+      <mat-option value="Option">Display Option</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <br> <p>Form field appearance variants</p>
+
+  <mat-form-field appearance="legacy">
+    <mat-label>Legacy form field</mat-label>
+    <input matInput placeholder="Placeholder">
+    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+    <mat-hint>Hint</mat-hint>
+  </mat-form-field>
+
+  <mat-form-field appearance="standard">
+    <mat-label>Standard form field</mat-label>
+    <input matInput placeholder="Placeholder">
+    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+    <mat-hint>Hint</mat-hint>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+      <mat-label>Fill form field</mat-label>
+      <input matInput placeholder="Placeholder">
+      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      <mat-hint>Hint</mat-hint>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+      <mat-label>Fill form field</mat-label>
+      <input matInput placeholder="Placeholder">
+      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      <mat-hint>Hint</mat-hint>
+  </mat-form-field>
+
+  <br> <p>Remove Floating label</p> <br>
+
+  <mat-form-field appearance="legacy">
+      <mat-label></mat-label>
+      <input matInput placeholder="Placeholder">
+      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      <mat-hint align="end">Hint</mat-hint>
+    </mat-form-field>
+</div>
+
+
+
 

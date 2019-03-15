@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
@@ -8,9 +7,7 @@ import { FormControl } from '@angular/forms';
 })
 export class HomeComponent implements OnInit {
 
-  name = new FormControl('');
   constructor() { }
-
   ngOnInit() {
   }
 

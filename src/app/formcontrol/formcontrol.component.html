@@ -1,0 +1,10 @@
+<div class="flex-container">
+  
+  <mat-form-field>
+    <input matInput placeholder="Input" [formControl]="name">
+  </mat-form-field>
+
+  {{'=> ' + name.value}}
+
+  <button mat-button color="primary" (click)="printText(name.value)">Click Me</button>
+</div>

@@ -11,8 +11,12 @@ import { NavMainComponent } from './nav-main/nav-main.component';
 import { HomeComponent } from './home/home.component';
 import { BusinessComponent } from './business/business.component';
 import { CustomerComponent } from './customer/customer.component';
+import { FormcontrolComponent } from './formcontrol/formcontrol.component';
 
-import { ReactiveFormsModule } from '@angular/forms';
+
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FrmgrpComponent } from './frmgrp/frmgrp.component';
+
 
 @NgModule({
   declarations: [
@@ -20,7 +24,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     NavMainComponent,
     HomeComponent,
     BusinessComponent,
-    CustomerComponent
+    CustomerComponent,
+    FormcontrolComponent,
+    FrmgrpComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +34,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     LayoutModule,
     MaterialModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

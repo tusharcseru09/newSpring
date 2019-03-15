@@ -1,0 +1,9 @@
+.flex-container {
+    margin: 50px 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-container > * {
+    width: 100%;
+}

@@ -1,0 +1,32 @@
+.material-card {
+    max-width: 600px;
+    margin: 20px 20px;
+}
+  
+.material-card-header {
+    background-image: url('/assets/Images/avater.jpg');
+    background-size: cover;
+}
+
+
+.material-radio-group {
+    display: flex;
+    flex-direction: column;
+    margin: 5px 40px;
+}
+  
+.material-radio-button {
+    margin: 5px;
+}
+  
+.form-checkbox {
+    margin: 0px 0px 10px 0px;
+}
+.form-flex-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-flex-container > * {
+    width: 100%;
+}

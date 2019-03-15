@@ -6,11 +6,12 @@ import {
   MatSidenavModule,
   MatIconModule,
   MatListModule } from '@angular/material';
-
+  import {MatCardModule} from '@angular/material/card';
   import {MatFormFieldModule} from '@angular/material/form-field';
   import {MatInputModule} from '@angular/material/input';
   import {MatSelectModule} from '@angular/material/select';
   import {MatCheckboxModule} from '@angular/material/checkbox';
+  import {MatRadioModule} from '@angular/material/radio';
 
 @NgModule({
   declarations: [],
@@ -24,7 +25,9 @@ import {
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatCardModule,
+    MatRadioModule
   ],
   exports: [
     MatToolbarModule,
@@ -35,7 +38,9 @@ import {
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatCardModule,
+    MatRadioModule
   ]
 })
 export class MaterialModule { }

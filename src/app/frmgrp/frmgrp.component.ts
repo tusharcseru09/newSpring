@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, FormArray } from '@angular/forms';
 
 export interface Food {
   value: string;
@@ -28,8 +28,10 @@ export class FrmgrpComponent implements OnInit {
     gender: new FormControl(''),
     fevFood: new FormControl('')
     });
+  user_data: FormArray;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }
@@ -39,3 +41,6 @@ export class FrmgrpComponent implements OnInit {
   }
 
 }
+
+
+

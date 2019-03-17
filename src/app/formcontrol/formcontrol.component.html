@@ -1,10 +1,46 @@
-<div class="flex-container">
-  
-  <mat-form-field>
-    <input matInput placeholder="Input" [formControl]="name">
-  </mat-form-field>
 
-  {{'=> ' + name.value}}
+<mat-card class="material-card">
 
-  <button mat-button color="primary" (click)="printText(name.value)">Click Me</button>
-</div>
+  <mat-card-header>
+    <div mat-card-avatar class="material-card-header"></div>
+    <mat-card-title>User registration form</mat-card-title>
+    <mat-card-subtitle>Please fill up all fields</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+
+    <form [formGroup]="exmFrmGrp" (ngSubmit) = "onSubmit()">
+
+      <div class="form-flex-container">
+
+        <mat-form-field>
+          
+          <input matInput type="text" placeholder="Name" formControlName="username" required>
+
+          <mat-error *ngFor="let validation of errorMessages.username">
+
+              <mat-error *ngIf="exmFrmGrp.get('username').hasError(validation.type) 
+                                && (exmFrmGrp.get('username').dirty || exmFrmGrp.get('username').touched)"> {{validation.message}}
+              </mat-error>
+
+          </mat-error>
+
+        </mat-form-field>
+
+        <button mat-button color="primary" type="submit" >Submit</button>
+
+      </div>
+
+    </form>
+    
+  </mat-card-content>
+
+  <mat-card-actions>
+  </mat-card-actions>
+
+</mat-card>
+<!--
+<button mat-button color="primary" (click)="print()">Click me</button>
+
+-->
+

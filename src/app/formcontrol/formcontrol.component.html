@@ -17,10 +17,9 @@
           
           <input matInput type="text" placeholder="Name" formControlName="username" required>
 
-          <mat-error *ngFor="let validation of regFrmValidation.username">
+          <mat-error *ngFor="let validation of regFrmValidation.username" >
 
-              <mat-error *ngIf="exmFrmGrp.get('username').hasError(validation.type) 
-                                && (exmFrmGrp.get('username').dirty || exmFrmGrp.get('username').touched)"> {{validation.message}}
+              <mat-error *ngIf="exmFrmGrp.get('username').hasError(validation.type) && (exmFrmGrp.get('username').dirty || exmFrmGrp.get('username').touched)"> {{validation.message}}
               </mat-error>
 
           </mat-error>

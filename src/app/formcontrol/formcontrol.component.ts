@@ -17,7 +17,7 @@ export class FormcontrolComponent implements OnInit {
 
   exmFrmGrp = new FormGroup({
     username: new FormControl( '', Validators.compose([
-      UniqueUsername.validUserName,
+      UniqueUsername.validUserName('username','validUserName'),
       Validators.required,
       Validators.maxLength(25),
       Validators.minLength(5)

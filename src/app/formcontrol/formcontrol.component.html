@@ -3,8 +3,8 @@
 
   <mat-card-header>
     <div mat-card-avatar class="material-card-header"></div>
-    <mat-card-title>User registration form</mat-card-title>
-    <mat-card-subtitle>Please fill up all fields</mat-card-subtitle>
+    <mat-card-title>Create your account</mat-card-title>
+    <mat-card-subtitle>Fill up all fields</mat-card-subtitle>
   </mat-card-header>
 
   <mat-card-content>
@@ -14,19 +14,41 @@
       <div class="form-flex-container">
 
         <mat-form-field>
-          
-          <input matInput type="text" placeholder="Name" formControlName="username" required>
-
+          <input matInput type="text" placeholder="User name" formControlName="username" required>
           <mat-error *ngFor="let validation of regFrmValidation.username" >
-
-              <mat-error *ngIf="exmFrmGrp.get('username').hasError(validation.type) && (exmFrmGrp.get('username').dirty || exmFrmGrp.get('username').touched)"> {{validation.message}}
-              </mat-error>
-
+            <mat-error *ngIf="exmFrmGrp.get('username').hasError(validation.errType) && (exmFrmGrp.get('username').dirty || exmFrmGrp.get('username').touched)"> {{validation.errMsg}}</mat-error>
           </mat-error>
-
         </mat-form-field>
 
-        <button mat-button color="primary" type="submit" >Submit</button>
+
+        <mat-form-field>
+          <input matInput placeholder="Email address" formControlName="email" required>
+          <mat-error *ngFor="let validation of regFrmValidation.email" >
+              <mat-error *ngIf="exmFrmGrp.get('email').hasError(validation.errType) && (exmFrmGrp.get('email').dirty || exmFrmGrp.get('email').touched)"> {{validation.errMsg}}</mat-error>
+          </mat-error>
+        </mat-form-field>
+
+
+        <mat-form-field>
+            <input matInput placeholder="Password" formControlName="password" [type]="hidePass ? 'password' : 'text'" required>
+            <mat-icon matSuffix (click)="hidePass = !hidePass">{{hidePass ? 'visibility_off' : 'visibility'}}</mat-icon>
+            <mat-error *ngFor="let validation of regFrmValidation.password" >
+                <mat-error *ngIf="exmFrmGrp.get('password').hasError(validation.errType) && (exmFrmGrp.get('password').dirty || exmFrmGrp.get('password').touched)"> {{validation.errMsg}}</mat-error>
+            </mat-error>
+          </mat-form-field>
+
+
+        <mat-form-field>
+            <input matInput placeholder="Retype Password" formControlName="confirmPassword" [type]="hideCPass ? 'password' : 'text'" required>
+            <mat-icon matSuffix (click)="hideCPass = !hideCPass">{{hideCPass ? 'visibility_off' : 'visibility'}}</mat-icon>
+            <mat-error *ngFor="let validation of regFrmValidation.confirmPassword" >
+                <mat-error *ngIf="exmFrmGrp.get('confirmPassword').hasError(validation.errType) && (exmFrmGrp.get('confirmPassword').dirty || exmFrmGrp.get('confirmPassword').touched)"> {{validation.errMsg}}</mat-error>
+            </mat-error>
+          </mat-form-field>
+
+        <button mat-button color="primary" type="submit" >Create</button>
+
+        <!-- [disabled] = "!exmFrmGrp.valid" -->
 
       </div>
 
@@ -38,8 +60,3 @@
   </mat-card-actions>
 
 </mat-card>
-<!--
-<button mat-button color="primary" (click)="print()">Click me</button>
-
--->
-

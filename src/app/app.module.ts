@@ -12,11 +12,10 @@ import { HomeComponent } from './home/home.component';
 import { BusinessComponent } from './business/business.component';
 import { CustomerComponent } from './customer/customer.component';
 import { FormcontrolComponent } from './formcontrol/formcontrol.component';
-
-
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FrmgrpComponent } from './frmgrp/frmgrp.component';
-
+import { CusRetypePasswordDirective } from './custom-validation/cusRetypePassword.directive';
+//import { CusRetypePasswordDirective } from './custom-validation/cusRetypePassword.directive';
 
 @NgModule({
   declarations: [
@@ -26,7 +25,8 @@ import { FrmgrpComponent } from './frmgrp/frmgrp.component';
     BusinessComponent,
     CustomerComponent,
     FormcontrolComponent,
-    FrmgrpComponent
+    FrmgrpComponent,
+    CusRetypePasswordDirective
   ],
   imports: [
     BrowserModule,
@@ -35,7 +35,8 @@ import { FrmgrpComponent } from './frmgrp/frmgrp.component';
     LayoutModule,
     MaterialModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+   // CusRetypePasswordDirective
   ],
   providers: [],
   bootstrap: [AppComponent]

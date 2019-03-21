@@ -16,7 +16,8 @@
         <mat-form-field>
           <input matInput type="text" placeholder="User name" formControlName="username" required>
           <mat-error *ngFor="let validation of regFrmValidation.username" >
-            <mat-error *ngIf="exmFrmGrp.get('username').hasError(validation.errType) && (exmFrmGrp.get('username').dirty || exmFrmGrp.get('username').touched)"> {{validation.errMsg}}</mat-error>
+            <mat-error *ngIf="exmFrmGrp.get('username').hasError(validation.errType) 
+            && (exmFrmGrp.get('username').dirty || exmFrmGrp.get('username').touched)"> {{validation.errMsg}}</mat-error>
           </mat-error>
         </mat-form-field>
 
@@ -39,12 +40,26 @@
 
 
         <mat-form-field>
-            <input matInput placeholder="Retype Password" formControlName="confirmPassword" [type]="hideCPass ? 'password' : 'text'" required>
+            <input matInput placeholder="Retype Password" appConfirmPasswordValidator="password" required
+             formControlName="confirmPassword" [type]="hideCPass ? 'password' : 'text'" >
             <mat-icon matSuffix (click)="hideCPass = !hideCPass">{{hideCPass ? 'visibility_off' : 'visibility'}}</mat-icon>
             <mat-error *ngFor="let validation of regFrmValidation.confirmPassword" >
-                <mat-error *ngIf="exmFrmGrp.get('confirmPassword').hasError(validation.errType) && (exmFrmGrp.get('confirmPassword').dirty || exmFrmGrp.get('confirmPassword').touched)"> {{validation.errMsg}}</mat-error>
+              <mat-error *ngIf="exmFrmGrp.get('confirmPassword').hasError(validation.errType) &&  (exmFrmGrp.get('confirmPassword').dirty  || exmFrmGrp.get('confirmPassword').touched) "> 
+                  <mat-error *ngIf="exmFrmGrp.get('confirmPassword').errors.notequal &&  (exmFrmGrp.get('confirmPassword').dirty  || exmFrmGrp.get('confirmPassword').touched) "> 
+                {{
+
+                  validation.errType + "-" +
+                  exmFrmGrp.get('confirmPassword').hasError(validation.errType ) + "-" + 
+                  validation.errMsg + "-" +
+                  exmFrmGrp.get('confirmPassword').errors.notequal + "-" + 
+                  exmFrmGrp.get('confirmPassword').errors.required
+
+                }}   
+                <mat-error *ngIf="exmFrmGrp.get('confirmPassword').errors.required &&  (exmFrmGrp.get('confirmPassword').dirty  || exmFrmGrp.get('confirmPassword').touched) "> 
+                </mat-error>          
+              </mat-error></mat-error>
             </mat-error>
-          </mat-form-field>
+        </mat-form-field>
 
         <button mat-button color="primary" type="submit" >Create</button>
 

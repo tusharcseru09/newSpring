@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { UniqueUsername } from '../custom-validation/duplicate-user-check';
+
 import { RegFrmErr } from '../form-validate/frmErrMsg.interface';
 import { FrmValidationMsg } from '../form-validate/frmValidationMsg';
+import { ValidationMethods } from '../form-validate/validationMethod';
 
 
 @Component({
@@ -19,15 +20,18 @@ export class FormcontrolComponent implements OnInit {
   
   exmFrmGrp = new FormGroup({
     username: new FormControl( '', Validators.compose([
-      UniqueUsername.validUserName('username','validUserName'),
       Validators.required,
       Validators.maxLength(25),
-      Validators.minLength(5)
+      Validators.minLength(5),
+      Validators.pattern('^[a-zA-Z0-9]+$'),
+      ValidationMethods.validUserName('valArg1','valArg2'),
+
     ])),
 
     email: new FormControl('',Validators.compose([
       Validators.required,
-      Validators.email
+      //Validators.email,
+      Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
     ])),
   
     password: new FormControl('',Validators.compose([
@@ -37,7 +41,6 @@ export class FormcontrolComponent implements OnInit {
 
     confirmPassword: new FormControl('',Validators.compose([
       Validators.required,
-      Validators.minLength(8)
     ])),
 
     });

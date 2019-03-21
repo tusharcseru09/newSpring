@@ -12,8 +12,8 @@ export class CtrlValidationMsg {
 
     public static email: CtrlErrMsg[] = [
         { errType: 'required', errMsg: 'Email is required.' },
-        { errType: 'email', errMsg: 'Enter a valid email.' },
-        { errType: 'pattern', errMsg: 'Enter a valid email.' }
+        //{ errType: 'email', errMsg: 'Enter a valid email.' },
+        { errType: 'pattern', errMsg: 'Enter a valid email.' },
     ];
 
     public static password: CtrlErrMsg[] = [
@@ -24,8 +24,7 @@ export class CtrlValidationMsg {
 
     public static confirmPassword: CtrlErrMsg[] = [
         { errType: 'required', errMsg: 'Confirm password is required.' },
-        { errType: 'minlength', errMsg: 'Password must be at least 8 characters long.' },
-        { errType: 'areEqual', errMsg: 'Password mismatch.' }
+        { errType: 'notequal', errMsg: 'Password mismatch.' }
     ];
 
     public static terms: CtrlErrMsg[] = [

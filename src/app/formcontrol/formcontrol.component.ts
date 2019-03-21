@@ -31,7 +31,7 @@ export class FormcontrolComponent implements OnInit {
     email: new FormControl('',Validators.compose([
       Validators.required,
       //Validators.email,
-      Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
+      Validators.pattern('^[a-zA-Z0-9_\\.\\+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9]+$')
     ])),
   
     password: new FormControl('',Validators.compose([
@@ -41,6 +41,7 @@ export class FormcontrolComponent implements OnInit {
 
     confirmPassword: new FormControl('',Validators.compose([
       Validators.required,
+      Validators.minLength(8)
     ])),
 
     });

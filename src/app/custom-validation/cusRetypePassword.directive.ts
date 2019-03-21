@@ -13,9 +13,11 @@ export class CusRetypePasswordDirective implements Validator {
 
     @Input() appConfirmPasswordValidator: string;
     validate(control: AbstractControl): {[key:string]:any} | null {
-
+        
         const controlToCompare = control.parent.get(this.appConfirmPasswordValidator);
-        if (controlToCompare && controlToCompare.value !== control.value){
+        if ( control.value!=='' && 
+             control.value!==controlToCompare.value && controlToCompare )
+        {
             return {notequal: true }
         }
         return null;
